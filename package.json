@@ -14,12 +14,12 @@
     "package": "vsce package",
     "prepare": "husky install"
   },
-  "publisher": "shalldie",
+  "publisher": "frg2089",
   "author": "shalldie",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shalldie/vscode-background.git"
+    "url": "https://github.com/frg2089/vscode-background.git"
   },
   "engines": {
     "vscode": "^1.40.0"
