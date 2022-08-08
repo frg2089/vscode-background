@@ -248,7 +248,18 @@ class Background implements Disposable {
         }
 
         // 自定义的样式内容
-        const content = (await getCss(arr, config.style, config.styles, config.useFront, config.loop)).trimEnd(); // 去除末尾空白
+        const content = (
+            await getCss(
+                arr,
+                config.style,
+                config.styles,
+                config.useFront,
+                config.loop,
+                config.minimapOpacity,
+                config.customBackgroundSelectors,
+                config.customRemoveBackgroundSelectors
+            )
+        ).trimEnd(); // 去除末尾空白
 
         // 添加到原有样式(尝试删除旧样式)中
         let cssContent = await this.getCssContent();
