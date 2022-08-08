@@ -10,7 +10,11 @@
 [GitHub](https://github.com/shalldie/vscode-background) | [Vscode Market](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
 
 ---
+## 为什么会有这个扩展?
 
+这是一个实验性的扩展，它的一些功能可能永远不会出现在`shalldie.background`中。
+
+---
 <!-- Bring icons to your Visual Studio Code -->
 
 给 [Visual Studio Code](https://code.visualstudio.com) 添加背景

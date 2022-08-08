@@ -10,7 +10,11 @@
 [GitHub](https://github.com/shalldie/vscode-background) | [Vscode Market](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
 
 ---
+## What about this extension?
 
+This is an experimental extension, and some of its features may never appear in `shalldie.background`.
+
+---
 Bring background images to your [Visual Studio Code](https://code.visualstudio.com)
 
 ![](https://user-images.githubusercontent.com/9987486/40583705-7105dda8-61c6-11e8-935a-3c5d475a1eb1.gif)
