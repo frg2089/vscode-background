@@ -100,6 +100,12 @@ class Background implements Disposable {
      * @memberof Background
      */
     private getCssContent(): Promise<string> {
+        if (Vibrancy.check()) {
+            if (!fs.existsSync(Vibrancy.cssPath)) {
+                return new Promise(resolve => resolve(''));
+            }
+            return fsp.readFile(Vibrancy.cssPath, ENCODE);
+        }
         return fsp.readFile(vscodePath.cssPath, ENCODE);
     }
 
@@ -115,7 +121,6 @@ class Background implements Disposable {
             return false;
         }
         try {
-            await fsp.access(path, fsConstants.W_OK);
             await fsp.writeFile(path, content, ENCODE);
             return true;
         } catch (e) {

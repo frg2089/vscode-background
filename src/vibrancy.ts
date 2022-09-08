@@ -8,22 +8,22 @@ const vibrancyIds = ['illixion.vscode-vibrancy-continued', 'eyhn.vscode-vibrancy
 const vibrancyConfig = 'vscode_vibrancy';
 const vibrancyConfigImports = 'imports';
 
-export const check = () => {
+const fileName = `${EXTENSION_ID}-love-vibrancy.css`;
+export const cssPath = path.resolve(path.join(__dirname, `../${fileName}`));
+
+export const check = (): vscode.Extension<any> | undefined => {
     for (const id of vibrancyIds) {
         const ext = vscode.extensions.getExtension(id);
         if (ext) {
             return ext;
         }
     }
+    return undefined;
 };
 
-export const update = async (content: string) => {
-    // 计算常量
-    const fileName = `${EXTENSION_ID}-love-vibrancy.css`;
-    const targetPath = path.resolve(path.join(__dirname, `../${fileName}`));
-
+export const update = async (content: string): Promise<void> => {
     // 先写文件
-    const task = background.saveCssContent(content, targetPath);
+    const task = background.saveCssContent(content, cssPath);
 
     // 读 Vibrancy 配置
     const conf = vscode.workspace.getConfiguration(vibrancyConfig);
@@ -32,10 +32,10 @@ export const update = async (content: string) => {
     // 判断是写入新路径还是更新原有路径
     const index = imports.findIndex(s => s.endsWith(fileName));
     if (index < 0) {
-        imports.push(targetPath);
+        imports.push(cssPath);
         imports.reverse();
     } else {
-        imports[index] = targetPath;
+        imports[index] = cssPath;
     }
 
     if (await task) {
