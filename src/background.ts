@@ -15,6 +15,7 @@ import { vscodePath } from './vscodePath';
 import { VERSION, BACKGROUND_VER, ENCODE } from './constants';
 import { CssGenerator, TCssGeneratorOptions } from './CssGenerator';
 import { utils } from './utils';
+import { changeProduct } from './vscodeChecksums';
 
 /**
  * 配置类型
@@ -262,6 +263,7 @@ class Background implements Disposable {
 
             if (await this.saveCssContent(cssContent)) {
                 vsHelp.showInfoRestart('Background has been changed! Please restart.');
+                await changeProduct(this.saveCssContentToTemp, this.sudoCommand);
             }
         } finally {
             await utils.unlock();
